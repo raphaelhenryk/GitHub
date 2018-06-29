@@ -235,6 +235,30 @@
 		$('.player').mb_YTPlayer();
 	};
 
+	var showGallery = function(){
+		$('.btn-primary').on('click', function(event){
+			
+			event.preventDefault();
+
+			$('html, body').animate({
+				scrollTop: $('.gallery').offset().top
+			}, 1000, 'easeInOutExpo');
+			
+			return false;
+		});
+
+		$(window).scroll(function(){
+
+			var $win = $(window);
+			if ($win.scrollTop() > 200) {
+				$('.btn-primary').addClass('active');
+			} else {
+				$('.btn-primary').removeClass('active');
+			}
+
+		});
+	};
+
 	
 	$(function(){
 		mobileMenuOutsideClick();
@@ -247,6 +271,7 @@
 		parallax();
 		owlCrouselFeatureSlide();
 		bgVideo();
+		showGallery();
 	});
 
 
